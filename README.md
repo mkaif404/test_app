@@ -2,7 +2,7 @@
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
-Complete ruby on rails  developer.
+Complete ruby on rails developer by Mohammad Kaif.
 Things you may want to cover:
 
 * Ruby version
