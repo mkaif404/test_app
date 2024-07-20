@@ -1,0 +1,51 @@
+@import "bootstrap";
+.navbar{
+    background-color: black !important;
+}
+.nav-link{
+    color: white !important;
+}
+
+#logo {
+    float: left;
+    font-size: 1.7em;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    font-weight: bold;
+  }
+
+#home-containers{
+    margin-top: 25px;
+}
+.jumbotron{
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center horizontally */
+    align-items: center;
+    height: 500px;
+    background-image: asset-url('jumbotronImage');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 5px;
+}
+
+#jumbotron-title{
+    size: 2.5rem;
+    font-weight: 600;
+}
+footer{
+    background-color: grey;
+    height: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center horizontally */
+    align-items: center;
+}
+.content {
+    height: 100vh;
+    background-color: lightgray; /* Set the background color of the content */
+    padding: 20px;
+    border: 1px solid black; /* Optional: to visualize the content area */
+}
