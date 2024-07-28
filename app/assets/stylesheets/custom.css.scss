@@ -36,16 +36,24 @@
     font-weight: 600;
 }
 footer{
-    background-color: grey;
-    height: 4rem;
+    background-color: rgb(62, 59, 59);
+    height: 5rem;
     display: flex;
     flex-direction: column;
     justify-content: center; /* Center horizontally */
     align-items: center;
+    text-decoration: none;
 }
-.content {
-    height: 100vh;
-    background-color: lightgray; /* Set the background color of the content */
-    padding: 20px;
-    border: 1px solid black; /* Optional: to visualize the content area */
+
+.footer a{
+    color: white;
+    text-decoration: none;
+}
+#page-content {
+    flex: 1 0 auto;
+    background-color: lightgrey;
+}
+
+.card-title{
+    text-decoration: none;
 }
