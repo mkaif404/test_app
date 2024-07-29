@@ -1,36 +1,40 @@
 # Use the official Ruby image with the specified version
 FROM ruby:3.3.4
 
-# Set environment variables
-ENV RAILS_ENV production
-ENV RACK_ENV production
+# Install required packages
+RUN apt-get update -qq && apt-get install -y \
+    build-essential \
+    libpq-dev \
+    nodejs \
+    yarn \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
-# Install necessary packages
-RUN apt-get update -qq && apt-get install -y nodejs yarn postgresql-client
-
-# Set working directory
-WORKDIR /app
-
-# Install Bundler
-RUN gem install bundler
+RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - \
+    && apt-get install -y nodejs \
+    && npm install -g yarn
+# Set the working directory
+WORKDIR /usr/src/app
 
 # Copy Gemfile and Gemfile.lock
-COPY Gemfile Gemfile.lock ./
+COPY Gemfile /usr/src/app/Gemfile
+COPY Gemfile.lock /usr/src/app/Gemfile.lock
 
 # Install gems
 RUN bundle install 
 
 # Copy the rest of the application code
-COPY . .
+COPY . /usr/src/app
 
 # Precompile assets
 RUN bundle exec rake assets:precompile
 
-# Clean up after bundle install
-RUN rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git
+# Set environment variables if necessary (for example, Rails environment)
+ENV RAILS_ENV=production
+ENV RACK_ENV=production
 
-# Expose port 3000 to the outside world
+# Expose the port the app runs on
 EXPOSE 3000
 
-# Start the application
-CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
+# Command to run the application
+CMD ["rails", "server", "-b", "0.0.0.0"]
