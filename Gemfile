@@ -14,7 +14,7 @@ gem 'ffi', '~> 1.17' # Or you can specify a newer version if needed
 gem "sprockets-rails"
 
 # Use sqlite3 as the database for Active Record
-gem "pg"
+gem "pg",'~>1.5.7'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
