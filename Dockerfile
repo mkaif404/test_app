@@ -9,10 +9,7 @@ RUN apt-get update -qq && apt-get install -y \
     yarn \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
-
-RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - \
-    && apt-get install -y nodejs \
-    && npm install -g yarn
+    
 # Set the working directory
 WORKDIR /usr/src/app
 
