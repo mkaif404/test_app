@@ -14,8 +14,7 @@ gem 'ffi', '~> 1.17' # Or you can specify a newer version if needed
 gem "sprockets-rails"
 
 # Use sqlite3 as the database for Active Record
-gem "pg",'~>1.5.7'
-
+gem "sqlite3", "~> 1.4"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 
@@ -58,10 +57,11 @@ group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
 end
 
-group :development do
+group :development, :test do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
-
+  gem "capybara"
+  gem "selenium-webdriver"
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
@@ -69,8 +69,7 @@ group :development do
   # gem "spring"
 end
 
-group :test do
+group :production do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem "capybara"
-  gem "selenium-webdriver"
+  gem 'pg', '~> 1.5.3'
 end
