@@ -62,6 +62,7 @@ group :development, :test do
   gem "web-console"
   gem "capybara"
   gem "selenium-webdriver"
+  gem 'byebug', '~> 11.1'
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
